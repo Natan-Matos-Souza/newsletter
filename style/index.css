@@ -1,0 +1,107 @@
+* {
+    box-sizing: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: #FFEADD;
+}
+
+.container {
+    width: 100%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.page-logo {
+    margin: 0px auto 40px;
+}
+
+.logo {
+    display: none;
+    width: 300px;
+}
+
+.page-title {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 100;
+}
+
+.form-area {
+    text-align: center;
+    width: 30%;
+    margin: 80px auto;
+    padding: 100px;
+    background-color: #FCAEAE;
+}
+
+.username-input-area {
+    color: #fff;
+    font-size: 26px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.useremail-input-area {
+    color: #fff;
+    font-size: 26px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.text-input {
+    font-size: 18px;
+    text-indent: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FFEADD;
+    margin: 0px auto 20px;
+    height: 36px;
+    width: 300px;
+}
+
+.submit-btn-area {
+    width: 100%;
+    margin: 20px auto 0px;
+}
+
+.submit-btn:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background-color: #FF6666;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    width: 60%;
+    height: 60px;
+}
+
+
+
+@keyframes email-status-animation {
+    0% {
+        display: inline-block;
+        right: -100%;
+    }
+
+    50% {
+        right: 40px;
+    }
+
+    75% {
+        right: 40px;
+        opacity: 50%;
+    }
+
+    100% {
+        opacity: 0%;
+        right: 40px;
+        display: none;
+    }
+}   
