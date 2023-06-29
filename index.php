@@ -122,68 +122,44 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
 </head>
 <body>
 
-
-    <div class="container">
-        <div class="page-logo">
-            <img class="logo" src="assets/logo-light-mode.png" alt="Page logo">
+    <main>
+        <div id="logo">
+            <div id="logo-area">
+                <img src="assets/logo-dark-mode.png" alt="dark-logo" id="dark-logo">
+            </div>
         </div>
 
-        <div class="title-area">
-            <h2 class="page-title" >Cadastre-se em nossa Newsletter!</h2>
+        <h2 id="page-title">Cadastre-se</h2>
+
+        <div class="container">
+            <form method="POST">
+                <div class="text-area">
+                    <h2 id="text">Digite o seu nome:</h2>
+                </div>
+
+
+                <!-----------Primeiro input------------->
+                <div class="input-area">
+                    <input type="text" class="input">
+                </div>
+
+                <!--------Segundo Input----- ------------>
+                <div class="input-area" style="display:none;">
+                    <input type="text" class="input">
+                </div>
+
+                <div id="btn-area">
+                    <input type="submit" value="Enviar" class="submit-btn">
+                </div>
+            </form>
         </div>
-    </div>
-    
-    <div class="form-area">
-
-        <form method="POST" class="form">
-
-            <div class="username-input-area">
-                <label>Nome: </label>
-                <input class="text-input" id="name-input" type="text" name="username" required>
-            </div>
-
-            <div class="useremail-input-area">
-                <label>Email: </label>
-                <input id="email-input" class="text-input" type="email" name="email" required>
-            </div>
-
-            <div class="submit-btn-area">
-                <input type="submit" id="submit-btn" class="submit-btn" value="Enviar">
-            </div>
-
-            <script>
-                const submitBtn = document.getElementById('submit-btn');
-                const nameInput = document.getElementById('name-input');
-
-                const emailInput = document.getElementById('email-input');
 
 
-                function setBtnValueToDefault() {
-                    
-                    submitBtn.setAttribute('value', 'Enviar');
-                    submitBtn.style.opacity = '1'
 
-                }
 
-                emailInput.addEventListener('change', setBtnValueToDefault);
+    </main>
 
-                nameInput.addEventListener('change', setBtnValueToDefault);
 
-                submitBtn.addEventListener('click', () => {
-
-                    const nameInput = document.getElementById('name-input');
-
-                    const emailInput = document.getElementById('email-input');
-
-                    if (emailInput.value != "" && nameInput.value != "") {
-
-                        submitBtn.setAttribute('value', 'Aguarde...')
-                        submitBtn.style.opacity = "0.5";
-
-                    }
-
-                })
-            </script>
 
             <?php if ($emailSended == true) {
 
@@ -215,8 +191,6 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
 
             ?>
 
-        </form>
-    </div>
 </body>
 </html>
 

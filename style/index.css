@@ -1,120 +1,59 @@
 * {
-    box-sizing: none;
+    box-sizing: border-box;
     padding: 0px;
     margin: 0px;
 }
 
-body {
-    background-color: #FFEADD;
+html {
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
 }
 
-.container {
+body {
+    background-color: #393646;
+}
+
+#logo {
     width: 100%;
-    margin: 40px auto;
+    margin: 40px auto 0px;
     text-align: center;
 }
 
-.page-logo {
-    margin: 0px auto 40px;
-}
-
-.logo {
-    display: inline-block;
+#dark-logo {
     width: 400px;
 }
 
-.page-title {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 32px;
-    font-weight: 100;
-}
-
-.form-area {
-    text-align: center;
-    width: 30%;
-    margin: 80px auto;
-    padding: 100px;
-    background-color: #FCAEAE;
-}
-
-.username-input-area {
-    color: #fff;
-    font-size: 26px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.useremail-input-area {
-    color: #fff;
-    font-size: 26px;
-    font-family: 'Roboto', sans-serif;
-}
-
-
-.text-input {
-    font-size: 18px;
-    text-indent: 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #FFEADD;
-    margin: 0px auto 20px;
-    height: 36px;
-    width: 300px;
-}
-
-.submit-btn-area {
+#page-title {
     width: 100%;
-    margin: 20px auto 0px;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 300;
+    margin: 60px auto 20px;
 }
 
-.submit-btn:hover {
-    opacity: .5;
-    cursor: pointer;
-}
-
-.submit-btn {
-    background-color: #FF6666;
-    color: #fff;
-    font-size: 18px;
-    border: none;
+.container {
+    background-color: #F4EEE0;
+    width: 800px;
+    padding: 40px;
+    margin: auto;
+    height: 500px;
     border-radius: 4px;
-    width: 60%;
-    height: 60px;
 }
 
+.text-area {
+    text-align: center;
+    width: 100%;
+    margin: 0px auto 20px;
+}
 
+#text {
+    color: #393646;
+    font-size: 32px
+}
 
-@keyframes email-status-animation {
-    0% {
-        display: inline-block;
-        right: -100%;
-    }
-
-    50% {
-        right: 40px;
-    }
-
-    75% {
-        right: 40px;
-        opacity: 50%;
-    }
-
-    100% {
-        opacity: 0%;
-        right: 40px;
-        display: none;
-    }
-}   
-
-@media screen and (max-width: 1020px) {
-
-    .logo {
-        display: inline-block;
-        width: 300px;
-    }
-
-    .text-input {
-        width: 200px;
-        font-size: 12px;
-    }
+.input-area {
+    width: 100%;
+    margin: 150px auto 0px;
+    text-align: center;
 }
