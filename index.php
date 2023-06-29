@@ -197,6 +197,10 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
             }
 
             ?>
+        
+        <footer id="footer">
+                <span id="footer-text">Estudante News | Por: Natan Matos</span>
+        </footer>
 
 </body>
 </html>
