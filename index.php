@@ -139,22 +139,29 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
 
 
                 <!-----------Primeiro input------------->
-                <div class="input-area">
-                    <input type="text" class="input">
+                <div class="input-area" id="first-input-div">
+                    <input type="text" class="input" id="first-input" name="username">
                 </div>
 
-                <!--------Segundo Input----- ------------>
-                <div class="input-area" style="display:none;">
-                    <input type="text" class="input">
+                <!--------Segundo Input----------------->
+                <div class="input-area" id="second-input-div">
+                    <input type="text" class="input" id="second-input" name="email">
                 </div>
 
-                <div id="btn-area">
-                    <input type="submit" value="Enviar" class="submit-btn">
+                <!------Botão para alterar input------->
+                <div class="btn-area">
+                    <input type="button" value="Próximo" class="submit-btn" id="change-input-btn">
                 </div>
+
+                <div class="btn-area">
+                    <input type="submit" value="Enviar" class="submit-btn" id="submit-btn">
+                </div>
+
+
             </form>
         </div>
 
-
+        <script src="js/index.js"></script>
 
 
     </main>
