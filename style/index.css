@@ -127,3 +127,46 @@ body {
     width: 100%;
     text-align: center;
 }
+
+
+@media screen and (max-width: 1200px) {
+
+    .container {
+        width: 60%;
+    }
+
+    #dark-logo {
+        width: 300px;
+    }
+
+    .submit-btn {
+        width: 50%;
+    }
+
+
+}
+
+@media screen and (max-width: 700px) {
+    
+    .container {
+        width: 80%;
+    }
+
+    .input-area {
+        width: 100%;
+    }
+
+    .input {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    #page-title {
+        font-size: 32px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+
+}
