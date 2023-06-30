@@ -2,7 +2,7 @@
 
 require "database_connection.php";
 
-if (isSet($_POST['username']) && isSet($_POST['username'])) {
+if (isSet($_POST['username']) && isSet($_POST['password'])) {
 
     $userName = htmlspecialchars(trim($_POST['username']));
 
