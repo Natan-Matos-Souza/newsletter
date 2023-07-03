@@ -48,6 +48,7 @@ body {
 }
 
 #text {
+    animation: changingFormText 2s;
     color: #393646;
     font-size: 32px
 }
@@ -119,6 +120,7 @@ body {
     }
 
 }
+
 
 #footer {
     position: fixed;

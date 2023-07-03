@@ -33,6 +33,7 @@ body {
 }
 
 .container {
+    overflow: hidden;
     background-color: #F4EEE0;
     width: 800px;
     padding: 40px;
@@ -48,6 +49,7 @@ body {
 }
 
 #text {
+    position: relative;
     color: #393646;
     font-size: 32px
 }
@@ -118,6 +120,24 @@ body {
         opacity: 0;
     }
 
+}
+
+@keyframes changeFormText {
+    0% {
+        left: 0px;
+    }
+
+    49% {
+        left: -100%;
+    }
+
+    50% {
+        right: -100%;
+    }
+
+    100% {
+        right: 0px;
+    }
 }
 
 #footer {

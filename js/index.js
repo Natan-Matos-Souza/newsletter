@@ -30,11 +30,16 @@ firstInput.focus()
 
 changeInputBtn.addEventListener('click', () => {
 
+    formText.style.animation = 'changeFormText 2s';
+
+    setTimeout(() => {
+        formText.innerHTML = 'Digite o seu e-mail:'
+    }, 1,9 * 1000)
+
     firstInputDiv.style.display = "none"
     secondInputDiv.style.display = "block"
     changeInputBtn.style.display = "none"
-    submitBtn.style.display = "inline-block"
-    formText.innerHTML = 'Digite o seu e-mail:'
+    submitBtn.style.display = "inline-block";
     secondInput.focus()
 
 })
