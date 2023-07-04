@@ -172,8 +172,6 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
             </form>
         </div>
 
-        <script src="js/index.js"></script>
-
 
     </main>
             
@@ -201,7 +199,7 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
                 print <<<_HTML_
 
                 <div class="email-status-container">
-                    <h2>$containerMessage</h2>
+                    <h2 id="log-status">$containerMessage</h2>
                 </div>
 
                 <style>
@@ -224,6 +222,10 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
             
 
             ?>
+
+        <audio src="assets/error_audio.mp3"></audio>
+
+        <script src="js/index.js"></script>
         
         <footer id="footer">
                 <span id="footer-text">Estudante News | Por: Natan Matos</span>

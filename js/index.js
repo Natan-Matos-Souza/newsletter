@@ -30,11 +30,11 @@ firstInput.focus()
 
 changeInputBtn.addEventListener('click', () => {
 
-    formText.style.animation = 'changeFormText 2s';
+    formText.style.animation = 'changeFormText 3s';
 
     setTimeout(() => {
         formText.innerHTML = 'Digite o seu e-mail:'
-    }, 1,9 * 1000)
+    }, 2 * 1000)
 
     firstInputDiv.style.display = "none"
     secondInputDiv.style.display = "block"
@@ -42,5 +42,32 @@ changeInputBtn.addEventListener('click', () => {
     submitBtn.style.display = "inline-block";
     secondInput.focus()
 
+})
+
+//Error log
+
+const logText = document.querySelector('#log-status').innerHTML;
+
+console.log(logText)
+
+document.querySelector('body').addEventListener('click', async () => {
+
+    let count = 0
+    const errorAudio = document.querySelector('audio')
+
+
+    if (logText == "Erro: este e-mail já foi cadastrado!" || logText == "Erro: não foi possível cadastrar o seu e-mail") {
+
+        if (count < 1) {
+
+            console.log('Código executado!');
+
+            errorAudio.play();
+
+            count++;
+
+        }
+
+    }
 })
 
