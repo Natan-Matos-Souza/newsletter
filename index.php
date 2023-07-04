@@ -179,6 +179,8 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
 
             <?php
                 //#C4D7B2 -> cor verde;
+
+                //Se ocorre algum erro no envio do e-mail.
                 if ($emailSended[0] == false && $emailSended[1] == 'email-already-registered') {
 
                     $containerMessage = 'Erro: este e-mail já foi cadastrado!';
@@ -193,11 +195,17 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
                     $containerColor = 'FF0000';
                 }
 
+                //Caso o e-mail seja enviado com sucesso.
                 if ($emailSended[0] == true) {
                     $containerMessage = 'E-mail cadastrado com sucesso!';
                     $audioPath = 'assets/success_audio.mp3';
                     $containerColor = '#C4D7B2';
                 }
+
+                /*
+                    Poderia ter utilizado switch case, mas achei o IF mais
+                    prático para esta ocasião por causa das arrays.
+                */
 
                 print <<<_HTML_
 
