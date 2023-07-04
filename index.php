@@ -182,17 +182,20 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
                 if ($emailSended[0] == false && $emailSended[1] == 'email-already-registered') {
 
                     $containerMessage = 'Erro: este e-mail já foi cadastrado!';
+                    $audioPath = 'assets/error_audio.mp3';
                     $containerColor = '#FF0000';
                 }
 
                 if ($emailSended[0] == false && $emailSended[1] == 'internal-problem') {
 
                     $containerMessage = 'Erro: não foi possível cadastrar o seu e-mail';
+                    $audioPath = 'assets/error_audio.mp3';
                     $containerColor = 'FF0000';
                 }
 
                 if ($emailSended[0] == true) {
                     $containerMessage = 'E-mail cadastrado com sucesso!';
+                    $audioPath = 'assets/success_audio.mp3';
                     $containerColor = '#C4D7B2';
                 }
 
@@ -223,7 +226,7 @@ if (isSet($_POST['username']) && isSet($_POST['email'])) {
 
             ?>
 
-        <audio src="assets/error_audio.mp3"></audio>
+        <audio src="<?php print $audioPath;?>"></audio>
 
         <script src="js/index.js"></script>
         

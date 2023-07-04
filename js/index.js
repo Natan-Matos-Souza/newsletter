@@ -57,21 +57,24 @@ function app() {
 
     function playErrorSound() {
 
+
         setTimeout(() => {
 
-            if (count < 1) {
+            const errorSound = document.querySelector('audio');
 
-                const errorSound = document.querySelector('audio');
+            for (i = 0; i < 1; i++) {
+
         
                 errorSound.play();
 
                 count++
             }
+            
     
         }, 1 * 1000)
     }
 
-    if (logText == "Erro: este e-mail já foi cadastrado!" || logText == "Erro: não foi possível cadastrar o seu e-mail") {
+    if (logText == "Erro: este e-mail já foi cadastrado!" || logText == "Erro: não foi possível cadastrar o seu e-mail" || logText == "E-mail cadastrado com sucesso!") {
         playErrorSound();
     }
 
