@@ -38,59 +38,71 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] != true) {
     <!-------------Usar display flex--------------->
     <div class="first-group-section">
         <section>
-            <div class="card-container">
-                <div class="image-area">
-                    <img class="vetor-image" src="assets/write-vetor.png" alt="Write">
-                </div>
-            
+            <a href="sendemail.php" class="container-link">
+                <div class="card-container">
+                    <div class="image-area">
+                        <img class="vetor-image" src="assets/write-vetor.png" alt="Write">
+                    </div>
+                
 
-                <div class="card-title-area">
-                    <span class="card-title">Escrever e-mail</span>
+                    <div class="card-title-area">
+                        <span class="card-title">Escrever e-mail</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </section>
 
         <section>
-            <div class="card-container">
-                <div class="image-area">
-                    <img class="vetor-image" src="assets/historic-vetor.png" alt="Historic">
-                </div>
-            
+            <a href="historic.php" class="container-link">
+                <div class="card-container">
+                    <div class="image-area">
+                        <img class="vetor-image" src="assets/historic-vetor.png" alt="Historic">
+                    </div>
+                
 
-                <div class="card-title-area">
-                    <span class="card-title">Histórico</span>
+                    <div class="card-title-area">
+                        <span class="card-title">Histórico</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </section>
     </div>
 
     <div class="second-group-section">
     <section>
-            <div class="card-container">
-                <div class="image-area">
-                    <img class="vetor-image" src="assets/user-vetor.png" alt="User">
-                </div>
-            
+            <a href="listusers.php" class="container-link">
+                <div class="card-container">
+                    <div class="image-area">
+                        <img class="vetor-image" src="assets/user-vetor.png" alt="User">
+                    </div>
+                
 
-                <div class="card-title-area">
-                    <span class="card-title">Listar usuários</span>
+                    <div class="card-title-area">
+                        <span class="card-title">Listar usuários</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </section>
 
         <section>
-            <div class="card-container">
-                <div class="image-area">
-                    <img class="vetor-image" src="assets/search-vetor.png" alt="Search">
-                </div>
-            
+            <a href="search.php" class="container-link">
+                <div class="card-container">
+                    <div class="image-area">
+                        <img class="vetor-image" src="assets/search-vetor.png" alt="Search">
+                    </div>
+                
 
-                <div class="card-title-area">
-                    <span class="card-title">Pesquisar</span>
+                    <div class="card-title-area">
+                        <span class="card-title">Pesquisar</span>
+                    </div>
                 </div>
-            </div>
+            </a>
         </section>
     </div>
+
+    <footer id="footer">
+            <span id="footer-text">Estudante News | Por: Natan Matos</span>
+    </footer>
 
 </body>
 </html>
