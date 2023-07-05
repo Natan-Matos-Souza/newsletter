@@ -109,20 +109,39 @@ if (isSet($_POST['email-title']) && isSet($_POST['email-content'])) {
                 </div>
 
                 <div class="submit-btn-area">
-                    <input type="submit" class="submit-btn" value="Enviar">
+                    <input type="submit" class="submit-btn" value="Salvar">
                 </div>
             </form>
         </div>
     </main>
 
+
+    
     <section>
-        <div class="email-test" id="email-test">
-            <div class="email-title-area">
-                <h2 class="email-title"></h2>
+        <div class="post-area">
+            <div class="post-area-title">
+                <h2 class="post-title">Exemplar do e-mail</h2>
             </div>
-            <hr>
-            <div class="email-content-area">
-                <div class="email-content"></div>
+
+            <div class="email-test" id="email-test">
+                <div class="email-title-area">
+                    <h2 class="email-title"></h2>
+                </div>
+                <hr>
+                <div class="email-content-area">
+                    <div class="email-content"></div>
+                </div>
+            </div>
+
+            <div class="confirm-area">
+                <div class="confirm-area-title">
+                    <span class="confirm-area-span">Você deseja enviar o email?</span>
+                </div>
+
+                <div class="confirm-area-btn">
+                    <input class="confirm-btn" type="button" value="Enviar">
+                    <input class="deny-btn" type="button" value="Cancelar">
+                </div>
             </div>
         </div>
     </section>

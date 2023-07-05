@@ -6,6 +6,7 @@
 
 html {
     font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
     color: #F4EEE0;
 }
 
@@ -103,10 +104,26 @@ body {
     color: #fff;
 }
 
-.email-test {
-    display: block;
+.post-area {
+    display: none;
+    width: 100%;
+    margin: 120px auto 0px;
+}
+
+.post-area-title {
     width: 50%;
-    margin: 40px auto 0px;
+    margin: auto;
+    text-align: left;
+}
+
+.post-title {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.email-test {
+    width: 50%;
+    margin: 30px auto 0px;
     background-color: #fff;
     padding: 40px;
     border-radius: 4px;
@@ -139,4 +156,50 @@ body {
     width: 95%;
     margin: auto;
     font-size: 16px;
+}
+
+.confirm-area {
+    width: 50%;
+    margin: 60px auto 0px;
+}
+
+.confirm-area-title {
+    text-align: center;
+}
+
+.confirm-area-span {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.confirm-area-btn {
+    margin: 40px auto 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.confirm-btn:hover, .deny-btn:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.confirm-btn, .deny-btn {
+    border-radius: 4px;
+    width: 200px;
+    height: 50px;
+    font-size: 32px;
+    border: none;
+}
+
+.confirm-btn {
+    color: #fff;
+    background-color: #C4D7B2;
+}
+
+.deny-btn {
+    color: #fff;
+    background-color: #FF0000;
 }

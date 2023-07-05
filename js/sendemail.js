@@ -1,5 +1,7 @@
 function app()
 {
+    let emailData;
+
     const emailForm = document.querySelector('form');
 
     //Evita que o formulário sofra submit.
@@ -20,15 +22,20 @@ function app()
         }
 
         //Recebo os dados da função getData();
-        const emailData = getData();
+        emailData = getData();
 
         function testEmail(emailData) {
-
+            const testEmailArea = document.querySelector('.post-area');
             const emailTitle = document.querySelector('.email-title');
             const emailContent = document.querySelector('.email-content');
 
+            testEmailArea.style.display = 'block';
+
             emailTitle.innerHTML = emailData.email_title;
             emailContent.innerHTML = emailData.email_content;
+
+            const testEmailCoordenates = testEmailArea.getBoundingClientRect();
+            scrollTo(0, testEmailCoordenates.top);
 
         }
 
