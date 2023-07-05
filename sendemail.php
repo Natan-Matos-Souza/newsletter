@@ -96,7 +96,7 @@ if (isSet($_POST['email-title']) && isSet($_POST['email-content'])) {
     </header>
 
     <main>
-        <div class="form">
+        <div class="form" id="form">
             <form method="POST">
                 <div class="first-input-area">
                     <h2 class="label">Título:</h2>
@@ -116,12 +116,12 @@ if (isSet($_POST['email-title']) && isSet($_POST['email-content'])) {
     </main>
 
     <section>
-        <div class="email-test">
+        <div class="email-test" id="email-test">
             <div class="email-title-area">
                 <h2 class="email-title"></h2>
             </div>
-            
-            <div class="email-cotent-area">
+            <hr>
+            <div class="email-content-area">
                 <div class="email-content"></div>
             </div>
         </div>

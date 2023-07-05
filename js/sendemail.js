@@ -2,7 +2,7 @@ function app()
 {
     const emailForm = document.querySelector('form');
 
-    //Evito que o formulário sofra submit.
+    //Evita que o formulário sofra submit.
     emailForm.addEventListener('submit', (e) => {
 
         e.preventDefault();
