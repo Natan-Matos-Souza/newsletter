@@ -115,7 +115,19 @@ if (isSet($_POST['email-title']) && isSet($_POST['email-content'])) {
         </div>
     </main>
 
+    <section>
+        <div class="email-test">
+            <div class="email-title-area">
+                <h2 class="email-title"></h2>
+            </div>
+            
+            <div class="email-cotent-area">
+                <div class="email-content"></div>
+            </div>
+        </div>
+    </section>
 
-
+    <script src="js/sendemail.js"></script>
+    
 </body>
 </html>
