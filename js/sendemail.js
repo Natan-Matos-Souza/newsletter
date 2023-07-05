@@ -44,6 +44,35 @@ function app()
 
 
     })
+
+    const cancelEmailBtn = document.querySelector('.deny-btn');
+
+    cancelEmailBtn.addEventListener('click', () => {
+
+
+        const emailFormCoordanates = emailForm.scrollTop
+
+        scrollTo(0, emailFormCoordanates);
+
+        function removeData()
+        {
+            emailData = '';
+            document.querySelector('.first-input').value = '';
+            document.querySelector('.second-input').value = '';
+
+        }
+
+        removeData();
+
+        document.addEventListener('scroll', () => {
+            
+            if (window.pageYOffset == emailFormCoordanates)
+            {
+                document.querySelector('.post-area').style.display = "none";
+            }
+        })
+    })
+
 }
 
 app();
