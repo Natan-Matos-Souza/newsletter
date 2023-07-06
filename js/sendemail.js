@@ -71,6 +71,7 @@ function app()
                 document.querySelector('.post-area').style.display = "none";
             }
         })
+
     })
 
 }

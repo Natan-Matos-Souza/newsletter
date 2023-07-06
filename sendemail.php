@@ -21,11 +21,11 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as PHPMailerException;
 use PHPMailer\PHPMailer\SMTP;
 
-if (isSet($_POST['email-title']) && isSet($_POST['email-content'])) {
+if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
-    $emailTitle = $_POST['email-title'];
+    $emailTitle = $_POST['email_title'];
 
-    $emailContent = $_POST['email-content'];
+    $emailContent = $_POST['email_content'];
 
     $storeData = $databaseConnection->query("INSERT INTO emailhistory VALUES ('$emailTitle', '$emailContent')");
 
@@ -146,7 +146,30 @@ if (isSet($_POST['email-title']) && isSet($_POST['email-content'])) {
         </div>
     </section>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
     <script src="js/sendemail.js"></script>
+
+    <script>
+
+        $('.confirm-btn').on('click', function() {
+
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: 'http://localhost/test/sendemail.php',
+                data: {
+                    email_title: 'Testando AJAX',
+                    email_content: 'Testando o AJAX'
+                },
+                sucess: console.log('Funcionando!')
+            })
+
+        })
+    </script>
+
+
+    
     
 </body>
 </html>
