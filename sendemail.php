@@ -23,8 +23,6 @@ use PHPMailer\PHPMailer\SMTP;
 
 if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
-    http_response_code(200);
-
     $emailTitle = $_POST['email_title'];
 
     $emailContent = $_POST['email_content'];
@@ -72,7 +70,11 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
         } catch(PHPMailerException $e) {
             $emailSended = array(false, 'internal-problem');
         }
-    } 
+    }
+
+    http_response_code(200);
+
+    return;
     
 }
 
@@ -149,6 +151,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
     </section>
 
     <div class="email-status-container">
+        <span class="close-btn">X</span>
         <span class="email-status"></span>
     </div>
 
@@ -159,87 +162,24 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
     <script>
 
 
+        function getData()
+        {
+            const emailTitleData = document.querySeletor('.first-inout').value;
+            const emailContentData = document.querySelector('.second-input').value;
+
+            const emailData = {
+                email_title: emailTitleData,
+                email_content: emailContentData
+            };
+
+            return emailData;
+
+        }
+
+        //Função para enviar dados.
         $('.confirm-btn').on('click', function() {
 
-
-            function emailResponse(response)
-            {
-                const emailPostArea = document.querySelector('.post-area');
-                const emailForm = document.querySelector('form');
-
-                const emailResponse = response;
-
-
-                const emailFormCoordenates = emailForm.scrollTop;
-
-
-                function clearData()
-                {
-                    document.querySelector('.first-input').value = '';
-                    document.querySelector('.second-input').value = '';
-                }
-
-                function emailStatusContainerAnimation(response)
-                {
-
-                    const emailStatusContainer = document.querySelector('.email-status-container');
-                    const emailStatus = document.querySelector('.email-status');
-
-                    console.log(response);
-
-                    switch(response)
-                    {
-
-                        case 'sending':
-                            emailStatus.innerHTML = 'Enviando...';
-                            emailStatusContainer.style.backgroundColor = 'yellow';
-                            break;
-
-                        case 'success':
-                            emailStatus.innerHTML = 'Email enviado com sucesso!';
-                            break;
-
-                        case 'failed':
-                            emailStatus.innerHTML = 'Erro: email não enviado!';
-                            emailStatusContainer.style.backgroundColor = '#FF0000';
-                            break;
-                    }
-
-                    emailStatusContainer.style.display = 'block';
-                    emailStatusContainer.style.animation = 'show-status-container 4s';
-                        setTimeout(() => {
-                            emailStatusContainer.style.display = 'none';
-                    }, 5 * 1000);
-                }
-
-                scrollTo(0, emailFormCoordenates);
-
-                document.addEventListener('scroll', () => {
-
-                    if (window.pageYOffset == emailFormCoordenates)
-                    {
-                        emailPostArea.style.display = 'none';
-                        clearData();
-                        emailStatusContainerAnimation(emailResponse);
-
-                    }
-                })
-            }
-
-            function getEmailData()
-            {
-                const firstInputData = document.querySelector('.first-input').value;
-                const secondInputData = document.querySelector('.second-input').value;
-
-                const emailData = {
-                    email_title: firstInputData,
-                    email_content: secondInputData
-                };
-
-                return emailData;
-            }
-
-            const emailData = getEmailData();
+            const emailData = getData();
 
             $.ajax({
                 type: 'POST',
@@ -247,34 +187,35 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
                 url: 'http://localhost/test/sendemail.php',
                 data: {
                     email_title: emailData.email_title,
-                    email_content: emailData.email_content
+                    email_content: emailData.email_content,
                 },
-
-                beforeSend: function()
-                {
-                    emailResponse('sending');
-                },
+                
+                beforeSend: a,
 
                 statusCode: {
-                    404: function() {
-                        emailResponse('failed')
+                    404: function()
+                    {
+                        console.log('Servidor não encontrado!');
                     },
 
-                    500: function() {
-                        emailResponse('failed');
+                    500: function()
+                    {
+                        console.log('Servidor indisponível!');
                     },
 
-                    403: function() {
-                        emailResponse('failed');
+                    200: function()
+                    {
+                        console.log('Dados enviados!')
                     },
 
-                    200: function() {
-                        emailResponse('success');
-                    }
+                    201: function()
+                    {
+                        console.log('Dados enviados!');
+                    },
                 }
             })
-
         })
+
     </script>
 
 
