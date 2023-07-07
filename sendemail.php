@@ -146,6 +146,10 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
         </div>
     </section>
 
+    <div class="email-status-container">
+        <span class="email-status">Email enviado com sucesso!</span>
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <script src="js/sendemail.js"></script>
@@ -165,15 +169,38 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
                 scrollTo(0, emailFormCoordenates);
 
+
+                function clearData()
+                {
+                    document.querySelector('.first-input').value = '';
+                    document.querySelector('.second-input').value = '';
+                }
+
+                function emailStatusContainerAnimation()
+                {
+                    const emailStatusContainer = document.querySelector('.email-status-container');
+                    emailStatusContainer.style.display = 'block';
+                    emailStatusContainer.style.animation = 'show-status-container 4s';
+                    setTimeout(() => {
+                        emailStatusContainer.style.display = 'none';
+                    }, 5 * 1000);
+                }
+
+
                 document.addEventListener('scroll', () => {
 
                     if (window.pageYOffset == emailFormCoordenates)
                     {
                         emailPostArea.style.display = 'none';
+                        clearData();
+                        emailStatusContainerAnimation();
+
                     }
 
 
                 })
+
+
 
             }
 

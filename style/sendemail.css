@@ -203,3 +203,35 @@ body {
     color: #fff;
     background-color: #FF0000;
 }
+
+.email-status-container {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    width: 400px;
+    height: 80px;
+    border-radius: 4px;
+    background-color: #C4D7B2;
+    color: #fff;
+    font-size: 26px;
+    text-align: center;
+    padding: 25px;
+}
+
+@keyframes show-status-container {
+    0% {
+        right: -400px;
+        opacity: 1;
+    }
+
+    50% {
+        right: 20px;
+        opacity: 1;
+    }
+
+    100% {
+        right: 20px;
+        opacity: 0;
+    }
+}
