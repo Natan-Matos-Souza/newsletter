@@ -156,7 +156,28 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
         $('.confirm-btn').on('click', function() {
 
 
-            function getData()
+            function emailPosted()
+            {
+                const emailPostArea = document.querySelector('.post-area');
+                const emailForm = document.querySelector('form');
+
+                const emailFormCoordenates = emailForm.scrollTop;
+
+                scrollTo(0, emailFormCoordenates);
+
+                document.addEventListener('scroll', () => {
+
+                    if (window.pageYOffset == emailFormCoordenates)
+                    {
+                        emailPostArea.style.display = 'none';
+                    }
+
+
+                })
+
+            }
+
+            function getEmailData()
             {
                 const firstInputData = document.querySelector('.first-input').value;
                 const secondInputData = document.querySelector('.second-input').value;
@@ -169,7 +190,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
                 return emailData;
             }
 
-            const emailData = getData();
+            const emailData = getEmailData();
 
             $.ajax({
                 type: 'POST',
@@ -179,7 +200,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
                     email_title: emailData.email_title,
                     email_content: emailData.email_content
                 },
-                sucess: console.log('Funcionando!')
+                sucess: emailPosted()
             })
 
         })
