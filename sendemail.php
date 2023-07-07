@@ -23,6 +23,8 @@ use PHPMailer\PHPMailer\SMTP;
 
 if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
+    http_response_code(200);
+
     $emailTitle = $_POST['email_title'];
 
     $emailContent = $_POST['email_content'];
@@ -147,7 +149,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
     </section>
 
     <div class="email-status-container">
-        <span class="email-status">Email enviado com sucesso!</span>
+        <span class="email-status"></span>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -160,14 +162,15 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
         $('.confirm-btn').on('click', function() {
 
 
-            function emailPosted()
+            function emailResponse(response)
             {
                 const emailPostArea = document.querySelector('.post-area');
                 const emailForm = document.querySelector('form');
 
-                const emailFormCoordenates = emailForm.scrollTop;
+                const emailResponse = response;
 
-                scrollTo(0, emailFormCoordenates);
+
+                const emailFormCoordenates = emailForm.scrollTop;
 
 
                 function clearData()
@@ -176,16 +179,40 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
                     document.querySelector('.second-input').value = '';
                 }
 
-                function emailStatusContainerAnimation()
+                function emailStatusContainerAnimation(response)
                 {
+
                     const emailStatusContainer = document.querySelector('.email-status-container');
+                    const emailStatus = document.querySelector('.email-status');
+
+                    console.log(response);
+
+                    switch(response)
+                    {
+
+                        case 'sending':
+                            emailStatus.innerHTML = 'Enviando...';
+                            emailStatusContainer.style.backgroundColor = 'yellow';
+                            break;
+
+                        case 'success':
+                            emailStatus.innerHTML = 'Email enviado com sucesso!';
+                            break;
+
+                        case 'failed':
+                            emailStatus.innerHTML = 'Erro: email não enviado!';
+                            emailStatusContainer.style.backgroundColor = '#FF0000';
+                            break;
+                    }
+
                     emailStatusContainer.style.display = 'block';
                     emailStatusContainer.style.animation = 'show-status-container 4s';
-                    setTimeout(() => {
-                        emailStatusContainer.style.display = 'none';
+                        setTimeout(() => {
+                            emailStatusContainer.style.display = 'none';
                     }, 5 * 1000);
                 }
 
+                scrollTo(0, emailFormCoordenates);
 
                 document.addEventListener('scroll', () => {
 
@@ -193,15 +220,10 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
                     {
                         emailPostArea.style.display = 'none';
                         clearData();
-                        emailStatusContainerAnimation();
+                        emailStatusContainerAnimation(emailResponse);
 
                     }
-
-
                 })
-
-
-
             }
 
             function getEmailData()
@@ -227,7 +249,29 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
                     email_title: emailData.email_title,
                     email_content: emailData.email_content
                 },
-                sucess: emailPosted()
+
+                beforeSend: function()
+                {
+                    emailResponse('sending');
+                },
+
+                statusCode: {
+                    404: function() {
+                        emailResponse('failed')
+                    },
+
+                    500: function() {
+                        emailResponse('failed');
+                    },
+
+                    403: function() {
+                        emailResponse('failed');
+                    },
+
+                    200: function() {
+                        emailResponse('success');
+                    }
+                }
             })
 
         })
