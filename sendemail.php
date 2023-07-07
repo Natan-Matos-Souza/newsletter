@@ -152,15 +152,32 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
     <script>
 
+
         $('.confirm-btn').on('click', function() {
+
+
+            function getData()
+            {
+                const firstInputData = document.querySelector('.first-input').value;
+                const secondInputData = document.querySelector('.second-input').value;
+
+                const emailData = {
+                    email_title: firstInputData,
+                    email_content: secondInputData
+                };
+
+                return emailData;
+            }
+
+            const emailData = getData();
 
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
                 url: 'http://localhost/test/sendemail.php',
                 data: {
-                    email_title: 'Testando AJAX',
-                    email_content: 'Testando o AJAX'
+                    email_title: emailData.email_title,
+                    email_content: emailData.email_content
                 },
                 sucess: console.log('Funcionando!')
             })
