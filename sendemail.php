@@ -216,7 +216,7 @@ if (isSet($_GET['get_users_number'])) {
                 console.log(newsletterMembers);
             })
 
-            setInterval(() => {
+            setTimeout(() => {
                 ajaxRequest();
             }, 300 * 1000);
         }
@@ -229,7 +229,10 @@ if (isSet($_GET['get_users_number'])) {
             const modalImage = document.querySelector('.modal-image');
             const modalContainer = document.querySelector('.modal-area');
             const modalStatus = document.querySelector('.modal-status');
+            const modalCloseBtn = document.querySelector('.close-modal-btn');
 
+
+            modalCloseBtn.style.display = 'none';
             modalImage.style.display = 'block';
             modalTitle.innerHTML = 'Estamos enviando o seu e-mail!';
             modalContainer.style.display = 'block';
@@ -247,6 +250,9 @@ if (isSet($_GET['get_users_number'])) {
             modalImage.style.display = 'none';
             modalTitle.innerHTML = 'E-mail enviado com sucesso!';
             modalStatus.innerHTML = `O seu e-mail foi enviado com sucesso para ${result.email_sent} usuários!`
+
+
+            modalCloseBtn.style.display = 'inline-block';
 
             modalCloseBtn.addEventListener('click', () => {
                 modalContainer.style.display = 'none';
