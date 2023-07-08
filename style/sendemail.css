@@ -204,44 +204,48 @@ body {
     background-color: #FF0000;
 }
 
-.close-btn:hover {
-    cursor: pointer;
-}
-
-.close-btn {
-    position: absolute;
-    top: 0;
-    right: 5px;
-    font-size: 18px;
-}
-
-.email-status-container {
-    display: none;
+.modal-area {
+    display: none;  
     position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 400px;
-    height: 80px;
-    border-radius: 4px;
-    background-color: #C4D7B2;
+    top: 0px;
     color: #fff;
-    font-size: 26px;
-    text-align: center;
-    padding: 25px;
+    width: 100%;    
+    height: 100000px;
+    background-color: rgba(0, 0, 0, .5);
 }
 
-@keyframes show-status-container {
-    0% {
-        right: -400px;
-        opacity: 1;
-    }
+.modal {
+    padding: 20px;
+    position: relative;
+    top: 100px;
+    margin: auto;
+    opacity: 1;
+    border-radius: 4px;
+    width: 50%;
+    height: 800px;
+    color: #393646;
+    background-color: #F4EEE0;
+}
 
-    50% {
-        right: 20px;
-        opacity: 1;
-    }
+.modal-title-area {
+    width: 80%;
+    margin: 40px auto 40px;
+    text-align: center;
+}
 
-    100% {
-        right: 20px;
-    }
+.modal-title {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.email-status-area {
+    width: 80%;
+    text-align: center;
+    margin: 0px auto 0px;
+}
+
+.modal-status {
+    font-size: 18px;
+    font-weight: 300;
+
 }

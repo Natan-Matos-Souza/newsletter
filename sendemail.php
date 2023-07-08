@@ -23,6 +23,8 @@ use PHPMailer\PHPMailer\SMTP;
 
 if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
+    Header('Content-Type: application/json');
+
     $emailTitle = $_POST['email_title'];
 
     $emailContent = $_POST['email_content'];
@@ -39,6 +41,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
     for ($i = 0; $i < $membersToSend; $i++) {
 
         $userInfo = $dbSearch->fetch_array();
+        $sentData = $i + 1;
 
         try {
             $mail = new PHPMailer(true);
@@ -72,10 +75,29 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
         }
     }
 
-    http_response_code(200);
+    print json_encode([
+        "email_sent" => $sentData,
+        "members" => $membersToSend
+    ]);
+
+    http_response_code(201);
 
     return;
     
+}
+
+if (isSet($_GET['get_users_number'])) {
+
+    $dbSearch = $databaseConnection->query("SELECT * FROM assinantes");
+
+    $newsletterMembers = $dbSearch->num_rows;
+
+    print json_encode([
+        "newsletter_members" => $newsletterMembers
+    ]);
+
+    return;
+
 }
 
 ?>
@@ -150,9 +172,20 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
         </div>
     </section>
 
-    <div class="email-status-container">
-        <span class="close-btn">X</span>
-        <span class="email-status"></span>
+    <div class="modal-area">
+        <div class="modal">
+            <div class="modal-title-area">
+                <h2 class="modal-title">O email está sendo enviado!</h2>
+            </div>
+
+            <div class="email-status-area">
+                <span class="modal-status"></span>
+            </div>
+
+            <div class="modal-image">
+                <img src="" alt="" class="modal-img">
+            </div>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -161,10 +194,43 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
     <script>
 
+        let newsletterMembers;
+
+        //Pega a quantidade de membros cadastrados na newsletter. Esse dado é proveniente do back-end.
+        $.ajax({
+            method: 'GET',
+            url: 'http://localhost/test/sendemail.php',
+            dataType: 'json',   
+            data: 'get_users_number'
+        }).done(function(result) {
+            newsletterMembers = result.newsletter_members;
+
+            console.log(newsletterMembers);
+        })
+
+
+        function sendingFeedback()
+        {
+            const modalContainer = document.querySelector('.modal-area');
+            const modalStatus = document.querySelector('.modal-status');
+
+
+            modalContainer.style.display = 'block';
+            modalStatus.innerHTML = `Estamos enviando o seu e-mail para ${newsletterMembers} usuários! Isso pode demorar alguns minutos!`
+        }
+
+        function completedRequest(result)
+        {
+            const modalTitle = document.querySelector('.modal-title');
+            const modalStatus = document.querySelector('.modal-status');
+
+            modalTitle.innerHTML = 'E-mail enviado com sucesso!';
+            modalStatus.innerHTML = `O seu e-mail foi enviado com sucesso para ${result.email_sent} usuários!`
+        }
 
         function getData()
         {
-            const emailTitleData = document.querySeletor('.first-inout').value;
+            const emailTitleData = document.querySelector('.first-input').value;
             const emailContentData = document.querySelector('.second-input').value;
 
             const emailData = {
@@ -189,31 +255,12 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
                     email_title: emailData.email_title,
                     email_content: emailData.email_content,
                 },
-                
-                beforeSend: a,
-
-                statusCode: {
-                    404: function()
-                    {
-                        console.log('Servidor não encontrado!');
-                    },
-
-                    500: function()
-                    {
-                        console.log('Servidor indisponível!');
-                    },
-
-                    200: function()
-                    {
-                        console.log('Dados enviados!')
-                    },
-
-                    201: function()
-                    {
-                        console.log('Dados enviados!');
-                    },
-                }
-            })
+                beforeSend: sendingFeedback()
+                }).done(function(result) {
+                    completedRequest(result);
+                }).fail(function() {
+                    console.log('Ocorreu um erro!');
+                })
         })
 
     </script>
