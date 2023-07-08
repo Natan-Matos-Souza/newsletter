@@ -262,12 +262,16 @@ body {
 }
 
 .close-modal-btn {
+    cursor: pointer;
+}
+
+.close-modal-btn {
     display: none;
     width: 200px;
     height: 80px;
-    border-radius: 4px;
     border: none;
-    font-size: 32px;
-    color: #F4EEE0;
+    border-radius: 4px;
     background-color: #393646;
+    color: #F4EEE0;
+    font-size: 32px;
 }
