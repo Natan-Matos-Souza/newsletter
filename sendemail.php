@@ -257,7 +257,6 @@ if (isSet($_GET['get_users_number'])) {
 
                 document.querySelector('.first-input').value = '';
                 document.querySelector('.second-input').value = '';
-
                 scrollTo(0, emailFormCoordenates);
 
                 document.addEventListener('scroll', () => {
