@@ -251,6 +251,22 @@ if (isSet($_GET['get_users_number'])) {
 
             modalCloseBtn.addEventListener('click', () => {
                 modalContainer.style.display = 'none';
+
+                const emailTestContainer = document.querySelector('.post-area');
+                const emailFormCoordenates = document.querySelector('form').scrollTop;
+
+                scrollTo(0, emailFormCoordenates);
+
+                document.addEventListener('scroll', () => {
+
+                    if (window.pageYOffset == emailFormCoordenates)
+                    {
+                        emailTestContainer.style.display = 'none';
+                    }
+
+                })
+
+
             })
 
         }
