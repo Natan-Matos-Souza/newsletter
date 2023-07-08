@@ -1,0 +1,23 @@
+RewriteEngine on
+
+RewriteRule ^home$ ./index.php [NC]
+
+RewriteRule ^login$ ./login.php [NC]
+
+RewriteRule ^dashboard$ ./dashboard.php [NC]
+
+RewriteRule ^sendemail$ ./sendemail.php [NC]
+
+Options -Indexes
+
+<FilesMatch "\.env$">
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "database_connection.php$">
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "autoload.php$">
+    Deny from all
+</FilesMatch>
