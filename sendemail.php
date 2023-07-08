@@ -201,24 +201,37 @@ if (isSet($_GET['get_users_number'])) {
         let newsletterMembers;
 
         //Pega a quantidade de membros cadastrados na newsletter. Esse dado é proveniente do back-end.
-        $.ajax({
-            method: 'GET',
-            url: 'http://localhost/test/sendemail.php',
-            dataType: 'json',   
-            data: 'get_users_number'
-        }).done(function(result) {
-            newsletterMembers = result.newsletter_members;
+        
+        
+        function ajaxRequest()
+        {
+            $.ajax({
+                method: 'GET',
+                url: 'http://localhost/test/sendemail.php',
+                dataType: 'json',   
+                data: 'get_users_number'
+            }).done(function(result) {
+                newsletterMembers = result.newsletter_members;
 
-            console.log(newsletterMembers);
-        })
+                console.log(newsletterMembers);
+            })
 
+            setInterval(() => {
+                ajaxRequest();
+            }, 300 * 1000);
+        }
+
+        ajaxRequest();
 
         function sendingFeedback()
         {
+            const modalTitle = document.querySelector('.modal-title');
+            const modalImage = document.querySelector('.modal-image');
             const modalContainer = document.querySelector('.modal-area');
             const modalStatus = document.querySelector('.modal-status');
 
-
+            modalImage.style.display = 'block';
+            modalTitle.innerHTML = 'Estamos enviando o seu e-mail!';
             modalContainer.style.display = 'block';
             modalStatus.innerHTML = `Estamos enviando o seu e-mail para ${newsletterMembers} usuários! Isso pode demorar alguns minutos!`
         }
