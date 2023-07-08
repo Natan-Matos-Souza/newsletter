@@ -247,5 +247,10 @@ body {
 .modal-status {
     font-size: 18px;
     font-weight: 300;
+}
 
+.modal-image {
+    width: 80%;
+    margin: 80px auto 0px;
+    text-align: center;
 }

@@ -183,7 +183,11 @@ if (isSet($_GET['get_users_number'])) {
             </div>
 
             <div class="modal-image">
-                <img src="" alt="" class="modal-img">
+                <img src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif" alt="" class="modal-img">
+            </div>
+
+            <div class="close-modal-btn-area">
+                <input type="button" class="close-modal-btn" value="Fechar">
             </div>
         </div>
     </div>
@@ -221,11 +225,20 @@ if (isSet($_GET['get_users_number'])) {
 
         function completedRequest(result)
         {
+            const modalContainer = document.querySelector('.modal-area');
             const modalTitle = document.querySelector('.modal-title');
             const modalStatus = document.querySelector('.modal-status');
+            const modalImage = document.querySelector('.modal-image');
+            const modalCloseBtn = document.querySelector('.close-modal-btn');
 
+            modalImage.style.display = 'none';
             modalTitle.innerHTML = 'E-mail enviado com sucesso!';
             modalStatus.innerHTML = `O seu e-mail foi enviado com sucesso para ${result.email_sent} usuários!`
+
+            modalCloseBtn.addEventListener('click', () => {
+                modalContainer.style.display = 'none';
+            })
+
         }
 
         function getData()
