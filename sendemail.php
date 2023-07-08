@@ -255,6 +255,9 @@ if (isSet($_GET['get_users_number'])) {
                 const emailTestContainer = document.querySelector('.post-area');
                 const emailFormCoordenates = document.querySelector('form').scrollTop;
 
+                document.querySelector('.first-input').value = '';
+                document.querySelector('.second-input').value = '';
+
                 scrollTo(0, emailFormCoordenates);
 
                 document.addEventListener('scroll', () => {
