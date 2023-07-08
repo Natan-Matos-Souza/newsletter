@@ -228,6 +228,9 @@ if (isSet($_GET['get_users_number'])) {
             const modalContainer = document.querySelector('.modal-area');
             const modalImage = document.querySelector('.modal-image');
             const modalStatus = document.querySelector('.modal-status');
+            const modalCloseBtn = document.querySelector('.modal-close-btn');
+
+            modalCloseBtn.style.display = 'none';
 
             modalTitle.innerHTML = 'O e-mail está sendo enviado!'
             modalImage.style.display = 'block';
