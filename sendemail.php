@@ -228,7 +228,7 @@ if (isSet($_GET['get_users_number'])) {
             const modalContainer = document.querySelector('.modal-area');
             const modalImage = document.querySelector('.modal-image');
             const modalStatus = document.querySelector('.modal-status');
-            const modalCloseBtn = document.querySelector('.modal-close-btn');
+            const modalCloseBtn = document.querySelector('.close-modal-btn');
 
             modalCloseBtn.style.display = 'none';
 
