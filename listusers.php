@@ -15,18 +15,21 @@ if (isSet($_GET['username'])) {
 
     $userName = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
 
+    //Realiza uma consulta no banco de dados
     $dbSearch = $databaseConnection->query("SELECT username, useremail FROM assinantes WHERE username LIKE '$userName%'");
 
     $rowCount = $dbSearch->num_rows;
 
     if ($rowCount < 1) {
 
+        //Retorna status code 404 caso não encontre o usuário
         http_response_code(404);
         print json_encode("Não há usuários com esse nome");
         return;
 
     }
 
+    //Retorna um JSON com os dados encontrados no banco de dados.
     $usersInfo = $dbSearch->fetch_all(MYSQLI_ASSOC);
 
     print json_encode($usersInfo);
