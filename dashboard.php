@@ -38,7 +38,7 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] != true) {
     <!-------------Usar display flex--------------->
     <div class="first-group-section">
         <section>
-            <a href="sendemail.php" class="container-link">
+            <a href="http://localhost/test/sendemail" class="container-link">
                 <div class="card-container">
                     <div class="image-area">
                         <img class="vetor-image" src="assets/write-vetor.png" alt="Write">

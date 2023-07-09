@@ -8,6 +8,8 @@ RewriteRule ^dashboard$ ./dashboard.php [NC]
 
 RewriteRule ^sendemail$ ./sendemail.php [NC]
 
+RewriteRule ^listusers$ ./listusers.php [NC]
+
 Options -Indexes
 
 <FilesMatch "\.env$">

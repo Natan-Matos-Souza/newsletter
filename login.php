@@ -34,7 +34,7 @@ if (isSet($_POST['username']) && isSet($_POST['password'])) {
         $_SESSION['admin'] = true;
         $_SESSION['username'] = $searchResult[0];
 
-        Header("Location: dashboard.php");
+        Header("Location: http://localhost/test/dashboard");
 
     }
 
