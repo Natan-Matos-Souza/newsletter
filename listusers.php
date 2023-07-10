@@ -9,6 +9,8 @@ if (!isSet($_SESSION['admin']) || $_SESSION['admin'] != true) {
 
 require "database_connection.php";
 
+global $databaseConnection;
+
 if (isSet($_GET['username'])) {
 
     $userName = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -46,24 +48,16 @@ if (isSet($_GET['username'])) {
     </head>
 
     <body>
+        <main>
+            <form>
+                <input type="text" class="search-input">
+                <input type="submit" class="submit-btn">
+            </form>
+        </main>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
-    <script>
-            let usersInfo;
 
-            $.ajax({
-                type: 'GET',
-                dataType: 'json',
-                url: 'http://localhost/test/listusers',
-                data: {
-                    username: 'Natan'
-                }
-            }).done(function(result) {
-                usersInfo = result;
-            }).fail(function(result) {
-                console.log(result.responseJSON);
-            })
-        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="js/listusers.js"></script>
     </body>
 </html>
