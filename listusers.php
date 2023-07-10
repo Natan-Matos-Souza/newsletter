@@ -11,7 +11,7 @@ require "database_connection.php";
 
 global $databaseConnection;
 
-if (isSet($_GET['username'])) {
+if (isSet($_GET['username']) && !empty($_GET['username'])) {
 
     $userName = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -20,21 +20,23 @@ if (isSet($_GET['username'])) {
     $rowCount = $dbSearch->num_rows;
 
     if ($rowCount < 1) {
-        print json_encode("Não existe usuários com nome $userName", JSON_UNESCAPED_UNICODE);
+        print json_encode("Não existe usuários com nome \"$userName\"", JSON_UNESCAPED_UNICODE);
         http_response_code(404);
         return;
     }
 
     $usersInfo = $dbSearch->fetch_all(MYSQLI_ASSOC);
 
-    $rowCount = [
-            "members" => $rowCount
-    ];
-
-    array_push($usersInfo, $rowCount);
+    array_push($usersInfo);
 
     print json_encode($usersInfo);
     http_response_code(200);
+    return;
+}
+
+if (isSet($_GET['username']) && empty($_GET['username'])) {
+    http_response_code(400);
+    print json_encode("Insira um nome válido !");
     return;
 }
 

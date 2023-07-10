@@ -61,6 +61,10 @@ body {
     display: inline;
 }
 
+.submit-btn:hover {
+    opacity: .5;
+}
+
 .submit-btn {
     width: 80px;
     background-image: url("assets/search-icon.png");
