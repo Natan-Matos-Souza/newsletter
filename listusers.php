@@ -43,16 +43,20 @@ if (isSet($_GET['username'])) {
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>Natan Matos</title>
+        <title>Listar Usuários</title>
         <meta name="description" content="Página para listar usuários">
+        <link rel="stylesheet" href="style/listusers.css">
     </head>
 
     <body>
         <main>
-            <form>
-                <input type="text" class="search-input">
-                <input type="submit" class="submit-btn">
-            </form>
+            <div class="form-area">
+                <form>
+                    <input type="text" class="search-input" placeholder="Digite o nome">
+                    <input type="submit" class="submit-btn">
+                    <img src="assets/search-icon.png">
+                </form>
+            </div>
         </main>
 
 

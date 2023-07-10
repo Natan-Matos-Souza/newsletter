@@ -10,7 +10,6 @@ submitBtn.addEventListener('click', (ev) => {
 
         return userSearch;
     }
-
     function sendData(data)
     {
         $.ajax({
@@ -21,7 +20,13 @@ submitBtn.addEventListener('click', (ev) => {
                 username: data
             }
         }).done(function(result) {
-            console.log(result);
+            listUsers(result);
+        })
+    }
+
+    function listUsers(result) {
+        result.forEach((element) => {
+            console.log(element.username);
         })
     }
 
