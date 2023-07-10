@@ -20,13 +20,27 @@ submitBtn.addEventListener('click', (ev) => {
                 username: data
             }
         }).done(function(result) {
+            const resultContainer = document.querySelector('.result-container');
+            resultContainer.innerHTML = '';
             listUsers(result);
+        }).fail(function(result) {
+            document.querySelector('.result-container').innerHTML = result.responseJSON;
         })
     }
 
     function listUsers(result) {
+        const resultContainer = document.querySelector('.result-container');
+
         result.forEach((element) => {
-            console.log(element.username);
+            resultContainer.innerHTML += `<div class="card-container">
+<div class="username-area">
+<span class="username">Usuário: ${element.username}</span>
+</div>
+
+<div class="email-area">
+<span class="email">E-mail: ${element.useremail}</span>
+</div>
+</div>`;
         })
     }
 
