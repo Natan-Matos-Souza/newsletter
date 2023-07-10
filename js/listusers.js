@@ -24,13 +24,14 @@ submitBtn.addEventListener('click', (ev) => {
             resultContainer.innerHTML = '';
             listUsers(result);
         }).fail(function(result) {
-            document.querySelector('.result-container').innerHTML = result.responseJSON;
+            document.querySelector('.result-container').innerHTML = `<h2 class="result-div-title">${result.responseJSON}</h2>`;
         })
     }
 
     function listUsers(result) {
         const resultContainer = document.querySelector('.result-container');
 
+        resultContainer.innerHTML += '<h2 class="result-div-title">Resultado:</h2>'
         result.forEach((element) => {
             resultContainer.innerHTML += `<div class="card-container">
 <div class="username-area">
