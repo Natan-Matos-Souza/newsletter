@@ -1,0 +1,70 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #393646;
+    color: #F4EEE0;
+}
+
+.logo-area {
+    width: 100%;
+    margin: 40px auto 0px;
+    text-align: center;
+}
+
+.logo-img {
+    width: 400px;
+}
+
+.historic-title {
+    font-size: 32px;
+    width: 100%;
+    margin: 80px auto 0px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.email-container {
+    width: 100%;
+    margin: 40px auto 0px;
+}
+
+.email-card {
+    position: relative;
+    width: 60%;
+    background-color: #F4EEE0;
+    padding: 40px;
+    height: 300px;
+    color: #000;
+    border-radius: 4px;
+    margin: 0px auto 40px;
+}
+
+.title-area {
+    text-align: left;
+}
+
+.email-title {
+    font-size: 32px;
+    font-weight: 300;
+}
+
+.content-area {
+    font-size: 18px;
+    margin: 30px auto 0px;
+    font-weight: 300;
+}
+
+.email-status-area {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
