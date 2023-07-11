@@ -15,7 +15,7 @@ if (isSet($_GET['username']) && !empty($_GET['username'])) {
 
     $userName = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $dbSearch = $databaseConnection->query("SELECT username, useremail FROM assinantes WHERE username LIKE '$userName%'");
+    $dbSearch = $databaseConnection->query("SELECT username, useremail FROM assinantes WHERE username LIKE '%$userName%'");
 
     $rowCount = $dbSearch->num_rows;
 

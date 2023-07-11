@@ -1,4 +1,7 @@
 const submitBtn = document.querySelector('.submit-btn');
+const searchInput = document.querySelector('.search-input');
+
+searchInput.focus();
 
 submitBtn.addEventListener('click', (ev) => {
     ev.preventDefault();
@@ -18,7 +21,10 @@ submitBtn.addEventListener('click', (ev) => {
             url: 'http://localhost/test/listusers',
             data: {
                 username: data
-            }
+            },
+            beforeSend: function() {
+                document.querySelector('.result-container').innerHTML = '<h2 class="result-div-title">Carregando</h2>';
+            },
         }).done(function(result) {
             const resultContainer = document.querySelector('.result-container');
             resultContainer.innerHTML = '';

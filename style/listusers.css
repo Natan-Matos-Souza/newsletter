@@ -67,7 +67,6 @@ body {
 
 .submit-btn {
     width: 80px;
-    background-image: url("assets/search-icon.png");
     background-color: #C4D7B2;
     border-radius: 360px;
 }
