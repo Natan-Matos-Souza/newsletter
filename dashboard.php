@@ -84,22 +84,6 @@ if (empty($_SESSION['admin']) || $_SESSION['admin'] != true) {
             </a>
         </section>
 
-        <section>
-            <a href="search.php" class="container-link">
-                <div class="card-container">
-                    <div class="image-area">
-                        <img class="vetor-image" src="assets/search-vetor.png" alt="Search">
-                    </div>
-                
-
-                    <div class="card-title-area">
-                        <span class="card-title">Pesquisar</span>
-                    </div>
-                </div>
-            </a>
-        </section>
-    </div>
-
     <footer id="footer">
             <span id="footer-text">Estudante News | Por: Natan Matos</span>
     </footer>
