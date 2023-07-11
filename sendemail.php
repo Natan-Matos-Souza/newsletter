@@ -29,7 +29,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
     $emailContent = $_POST['email_content'];
 
-    $storeData = $databaseConnection->query("INSERT INTO emailhistory VALUES ('$emailTitle', '$emailContent')");
+    $storeData = $databaseConnection->query("INSERT INTO emailhistory(email_title, email_content, sent) VALUES ('$emailTitle', '$emailContent', false)");
 
 
     //Envia email para todos usuários.
@@ -81,6 +81,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
     ]);
 
     http_response_code(201);
+    $storeData = $databaseConnection->query("UPDATE emailhistory SET sent=true WHERE email_title='$emailTitle'");
 
     return;
     

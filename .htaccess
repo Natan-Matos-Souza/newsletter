@@ -10,6 +10,7 @@ RewriteRule ^sendemail$ ./sendemail.php [NC]
 
 RewriteRule ^listusers$ ./listusers.php [NC]
 
+RewriteRule ^historic$ ./historic.php [NC]
 Options -Indexes
 
 <FilesMatch "\.env$">
