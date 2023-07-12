@@ -40,7 +40,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
 
     for ($i = 0; $i < $membersToSend; $i++) {
 
-        $userInfo = $dbSearch->fetch_array();
+        $userInfo = $dbSearch->fetch_array(MYSQLI_ASSOC);
         $sentData = $i + 1;
 
         try {
@@ -57,7 +57,7 @@ if (isSet($_POST['email_title']) && isSet($_POST['email_content'])) {
             $mail->Port = 465;
 
             $mail->setFrom($_ENV['hostEmail']);
-            $mail->addAddress($userInfo[2]);
+            $mail->addAddress($userInfo['useremail']);
 
             $mail->isHTML(true);
             $mail->Subject = $emailTitle;

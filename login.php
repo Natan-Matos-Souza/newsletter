@@ -2,6 +2,8 @@
 
 require "database_connection.php";
 
+global $databaseConnection;
+
 if (isSet($_POST['username']) && isSet($_POST['password'])) {
 
     $userName = htmlspecialchars(trim($_POST['username']));
